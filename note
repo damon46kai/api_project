@@ -1,0 +1,63 @@
+start project:uvicorn main:app --reload
+
+
+interface:
+-local:
+-remote :
+ --HTTP
+ --TCP
+
+
+
+ status code:
+ --1xx normal pending
+ --2xx success
+ --3xx transfer
+ --4xx wrong request
+    -401 not identification
+    -402
+    -403 permission denied
+    -404
+    -405
+ --5xx server wrong
+
+ Interface(endpoint) include two part
+
+ -Request method
+ -URL
+
+ GET and POST differL
+
+ --request method diff (HTTP header)
+ --params:
+    - GET params search string HTTP header
+    - POST params via json HTTP text
+
+Interface Security
+is base on cryptology not HTTP request method
+-HTTPS
+-interface sign and encrypting
+
+idempotent
+request N times same result
+
+example : delete ID=1 article
+not idempotent: register account post
+  - browser via post know request not idempotent. will not send duplicate request
+
+  Question : POSTcan modify URL select string pass params
+
+  Yes
+
+Authentication:
+- cookies
+- token
+    - api-key
+    - jwt json web token
+
+- session
+
+Q1: session and cookies diff?
+
+Q2: session implementation principle
+-- based on cookies
